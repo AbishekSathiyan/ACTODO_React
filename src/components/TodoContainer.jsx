@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Trash2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import AddTodoForm from "./AddTodoForm"; // ✅ Fixed import
 import Contact from "./Contact"; // ✅ Fixed import
+import AddTodoForm from "./AddtodoForm";
 
 function TodoContainer() {
   const [activities, setActivities] = useState([]);
@@ -50,7 +50,9 @@ function TodoContainer() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className={`${alertColors[alert.type]} text-white text-center py-2 px-4 rounded-md shadow-md mb-3 w-full max-w-md`}
+            className={`${
+              alertColors[alert.type]
+            } text-white text-center py-2 px-4 rounded-md shadow-md mb-3 w-full max-w-md`}
           >
             {alert.message}
           </motion.div>
@@ -71,9 +73,15 @@ function TodoContainer() {
         ) : (
           <ul className="text-gray-700 text-sm md:text-base max-h-40 overflow-y-auto pr-2">
             {activities.map((activity, index) => (
-              <li key={index} className="flex items-center bg-white px-4 py-2 rounded-md shadow-md mb-2">
+              <li
+                key={index}
+                className="flex items-center bg-white px-4 py-2 rounded-md shadow-md mb-2"
+              >
                 <span className="flex-1 text-left">{activity}</span>
-                <button onClick={() => removeActivity(index)} className="text-red-500 hover:text-red-700">
+                <button
+                  onClick={() => removeActivity(index)}
+                  className="text-red-500 hover:text-red-700"
+                >
                   <Trash2 size={20} />
                 </button>
               </li>
