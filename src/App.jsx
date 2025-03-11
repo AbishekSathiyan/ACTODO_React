@@ -1,11 +1,21 @@
-import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/header.jsx";
+import { useState } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Header from "./components/Header.jsx"; // Ensure correct case-sensitive import
 import TodoContainer from "./components/TodoContainer.jsx";
-import SignUp from "./components/signup.jsx";
-import Login from "./components/login.jsx";
+import SignUp from "./components/SignUp.jsx";
+import Login from "./components/Login.jsx";
 import Contact from "./components/Contact.jsx";
-import "./App.css";
+
+function Home({ username }) {
+  return (
+    <div className="flex justify-center items-center p-4 md:p-8">
+      <div className="bg-[#EFEFEF] p-6 md:p-8 border rounded-md w-full max-w-3xl">
+        <Header username={username} />
+        <TodoContainer />
+      </div>
+    </div>
+  );
+}
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -39,18 +49,6 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </BrowserRouter>
-    </div>
-  );
-}
-
-// Home Component
-function Home({ username }) {
-  return (
-    <div className="flex justify-center items-center p-4 md:p-8">
-      <div className="bg-[#EFEFEF] p-6 md:p-8 border rounded-md w-full max-w-3xl">
-        <Header username={username} />
-        <TodoContainer />
-      </div>
     </div>
   );
 }
