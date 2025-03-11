@@ -8,6 +8,11 @@ export default defineConfig({
     tailwindcss(),
     react()
   ],
+  resolve: {
+    alias: {
+      "react-router-dom": "react-router-dom",
+    },
+  },
   build: {
     rollupOptions: {
       external: ["react-router-dom"]

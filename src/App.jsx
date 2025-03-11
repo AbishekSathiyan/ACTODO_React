@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/header.jsx";
 import TodoContainer from "./components/TodoContainer.jsx";
 import SignUp from "./components/signup.jsx";
